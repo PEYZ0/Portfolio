@@ -33,7 +33,9 @@ function Content() {
     });
     return (
       <animated.div style={styles} className="buttonDown">
-        <IconButton>
+        <IconButton onClick={()=>{
+          window.scroll({behavior:"smooth",top:""+window.innerHeight+"",left:"0"})
+        }}>
           <KeyboardArrowDownIcon
             sx={{
               color: "white",
@@ -96,7 +98,7 @@ function main() {
   return (
     <div className="Top">
       <Navbar />
-      <Content />
+      <Content/>
     </div>
   );
 }
