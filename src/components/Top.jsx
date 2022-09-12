@@ -1,7 +1,9 @@
-import { Button, Typography, Stack, Backdrop, IconButton } from "@mui/material";
+import { Button, Typography, Stack, IconButton } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import CodeIcon from "@mui/icons-material/Code";
 import React from "react";
 import bg from "../assets/BackgroundPicture.jpg";
+import { useSpring, animated } from "react-spring";
 
 function Navbar() {
   return (
@@ -23,6 +25,26 @@ function Navbar() {
 }
 
 function Content() {
+  function ButtonSpin() {
+    const styles = useSpring({
+      loop: { reverse: true },
+      from: { y: 0 },
+      to: { y: -10 },
+    });
+    return (
+      <animated.div style={styles} className="buttonDown">
+        <IconButton>
+          <KeyboardArrowDownIcon
+            sx={{
+              color: "white",
+              height: "30px",
+              width: "30px",
+            }}
+          />
+        </IconButton>
+      </animated.div>
+    );
+  }
   return (
     <div
       className="contentWrapper"
@@ -37,25 +59,34 @@ function Content() {
       }}
     >
       <div className="contentWrapperWrapper">
-        <Stack spacing={0}>
-          <Typography
+        <div className="topContent">
+          <Stack spacing={0}>
+            <Typography
+              sx={{
+                color: "White",
+              }}
+              variant="h2"
+            >
+              Willkomen
+            </Typography>
+            <Typography
+              sx={{
+                color: "White",
+              }}
+              variant="h3"
+            >
+              zu meinem Portfolio
+            </Typography>
+          </Stack>
+          <CodeIcon
             sx={{
-              color: "White",
+              color: "white",
+              height: "150px",
+              width: "150px",
             }}
-            variant="h2"
-          >
-            Willkomen
-          </Typography>
-          <Typography
-            sx={{
-              color: "White",
-            }}
-            variant="h3"
-          >
-            zu meinem Portfolio
-          </Typography>
-        </Stack>
-        <div className="buttonDown"></div>
+          />
+        </div>
+        <ButtonSpin />
       </div>
     </div>
   );
