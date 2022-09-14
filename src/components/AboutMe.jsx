@@ -1,7 +1,9 @@
 import React from "react";
-import { Avatar, Card, Typography } from "@mui/material";
+import { Avatar, Card, IconButton, Typography, Divider } from "@mui/material";
 import { Stack } from "@mui/system";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from "@mui/icons-material/GitHub";
 import WorkIcon from "@mui/icons-material/Work";
 
 function AboutMe() {
@@ -43,7 +45,7 @@ function AboutMe() {
           <Stack
             spacing={0.5}
             sx={{
-              margin: "20px",
+              margin: "10px",
               marginLeft: "10px",
             }}
           >
@@ -79,6 +81,17 @@ function AboutMe() {
                   @BARMER
                 </a>
               </Typography>
+            </Stack>
+            <Divider sx={{
+              margin:"10px"
+            }} />
+            <Stack spacing={0.5} direction={"row"}>
+            <IconButton>
+                <GitHubIcon />
+              </IconButton>
+              <IconButton>
+                <LinkedInIcon/>
+              </IconButton>
             </Stack>
           </Stack>
         </Card>
